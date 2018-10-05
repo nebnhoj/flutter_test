@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:medalert/model/home_model.dart';
 import 'package:medalert/ui/component/home/drawer/container.dart';
+import 'package:medalert/ui/component/home/page/map.dart';
 import 'package:medalert/ui/component/home/page/product.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:web_socket_channel/io.dart';
+import 'package:web_socket_channel/status.dart' as status;
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -18,20 +21,26 @@ class MyHomePage extends StatelessWidget {
             ),
             body: new ScopedModelDescendant<HomeModel>(
                 builder: (context, child, model) {
-              return model.content == 'From Page 1'
-                  ? new ProductPage()
-                  : new Center(
-                      child: new Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[new Text(model.content)],
-                    ));
+              switch (model.content) {
+                case 'From Page 1':
+                  return new ProductPage();
+                  break;
+                case 'From Page 3':
+                  return new MapPage();
+                  break;
+                  default:
+                    return new Text(model.content);
+                    break;
+              }
             }),
             drawer: DrawerContainer(),
             floatingActionButton: new ScopedModelDescendant<HomeModel>(
                 builder: (context, child, model) {
               return new FloatingActionButton(
-                  onPressed: ()=> print("test")
-                  , child: new Icon(Icons.camera));
+                  onPressed: () {
+                    print("test");
+                  },
+                  child: new Icon(Icons.camera));
             })));
   }
 }

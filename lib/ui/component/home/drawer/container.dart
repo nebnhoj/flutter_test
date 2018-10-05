@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medalert/ui/component/home/drawer/drawer_item.dart';
+import 'package:medalert/ui/component/home/drawer/item.dart';
 import 'package:medalert/ui/component/home/drawer/header.dart';
 
 class DrawerContainer extends StatelessWidget{

@@ -6,8 +6,13 @@ class PrimaryButton extends StatelessWidget{
     return RaisedButton(child:
       new Row(children: <Widget>[
         Icon(Icons.add),
-        Text("ADD Item")
-      ],)
+        Text("ADD ITEM")
+      ],
+      ),
+      onPressed: (){
+
+      print("clicked");
+      },
      );
   }
 
