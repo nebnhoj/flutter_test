@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medalert/ui/component/home/drawer/item.dart';
-import 'package:medalert/ui/component/home/drawer/header.dart';
+import 'package:medalert/ui/component/home/drawer/content/Items.dart';
+import 'package:medalert/ui/component/home/drawer/content/header.dart';
 
 class DrawerContainer extends StatelessWidget{
 
@@ -15,10 +15,7 @@ class DrawerContainer extends StatelessWidget{
         padding: EdgeInsets.zero,
         children: <Widget>[
           Header(),
-          DrawerItem(pageNumber:1,name: "List",iconData: Icons.list),
-          DrawerItem(pageNumber:2,name: "Person",iconData:Icons.people),
-          DrawerItem(pageNumber:3,name: "Map",iconData:Icons.map),
-          DrawerItem(pageNumber:4,name: "Settings",iconData:Icons.settings),
+          DrawerItems()
         ],
       ),
     );

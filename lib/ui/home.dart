@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medalert/config/routes.dart';
 import 'package:medalert/model/home_model.dart';
 import 'package:medalert/ui/component/home/drawer/container.dart';
 import 'package:medalert/ui/component/home/page/map.dart';
@@ -13,9 +14,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModel<HomeModel>(
-        model: HomeModel(),
-        child: new Scaffold(
+    return new Scaffold(
             appBar: new AppBar(
               title: new Text(title),
             ),
@@ -39,8 +38,10 @@ class MyHomePage extends StatelessWidget {
               return new FloatingActionButton(
                   onPressed: () {
                     print("test");
+                    Navigator.of(context).pushNamed(Routes.PAGE2);
+
                   },
                   child: new Icon(Icons.camera));
-            })));
+            }));
   }
 }
